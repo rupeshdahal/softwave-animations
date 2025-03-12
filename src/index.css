@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 260 51% 75%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 175 70% 68%;
+    --primary-foreground: 180 10% 10%;
 
     --secondary: 260 20% 94%;
     --secondary-foreground: 240 5.9% 10%;
@@ -23,15 +23,15 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 260 20% 94%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 175 70% 68%;
+    --accent-foreground: 180 10% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 260 51% 75%;
+    --ring: 175 70% 68%;
 
     --radius: 0.75rem;
   }
@@ -46,7 +46,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 260 51% 75%;
+    --primary: 175 70% 60%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%;
@@ -55,7 +55,7 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 240 3.7% 15.9%;
+    --accent: 175 70% 40%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -63,7 +63,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 260 51% 75%;
+    --ring: 175 70% 40%;
   }
 }
 
@@ -80,7 +80,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-soft-purple to-soft-dark-purple bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-teal-500 to-cyan-500 dark:from-teal-400 dark:to-cyan-400 bg-clip-text text-transparent;
   }
   
   .animate-delay-100 {
@@ -102,4 +102,59 @@
   .animate-delay-500 {
     animation-delay: 500ms;
   }
+
+  .cta-animate-in {
+    animation: slideUp 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .hover-float {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-float:hover {
+    transform: translateY(-8px);
+  }
+  
+  .bg-gradient-cool {
+    @apply bg-gradient-to-r from-teal-500 to-cyan-500 dark:from-teal-600 dark:to-cyan-700;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulsing {
+  animation: pulse 3s ease-in-out infinite;
 }
