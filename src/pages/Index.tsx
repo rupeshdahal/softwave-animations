@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import CtaSection from "@/components/CtaSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "BeginnerSoft - Innovating Simplicity, Empowering Growth";
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <CtaSection />
+      <Footer />
     </div>
   );
 };
